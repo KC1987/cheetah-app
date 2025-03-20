@@ -52,7 +52,7 @@ export default function Access() {
 
   return (
     <div>
-      <h1 className="text-xl" >Access</h1>
+      <h1 className="text-xl" >Access 2</h1>
       <Button onPress={ handleAccessWithGoogle } >Access With Google</Button>
     </div>
   )
