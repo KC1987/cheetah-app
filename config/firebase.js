@@ -4,7 +4,7 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { getFirestore, doc, onSnapshot } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-// import { setPersistence, browserLocalPersistence } from "firebase/auth";
+import { setPersistence, browserLocalPersistence } from "firebase/auth";
 
 // After initializing auth
 // TODO: Add SDKs for Firebase products that you want to use
@@ -28,7 +28,7 @@ export const db = getFirestore();
 export const auth = getAuth();
 export const storage = getStorage();
 
-// setPersistence(auth, browserLocalPersistence);
+setPersistence(auth, browserLocalPersistence);
 
 
 
