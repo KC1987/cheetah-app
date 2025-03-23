@@ -1,11 +1,23 @@
 'use client'
 
-import Scanner from "@/components/scanner/scanner"
+import { useState } from "react";
+import { useZxing } from "react-zxing";
 
-export default function Scan () {
-  return(
-    <div>
-      <Scanner />
-    </div>
-  )
-}
+export default function BarcodeScanner () {
+  const [result, setResult] = useState("");
+  const { ref } = useZxing({
+    onDecodeResult(result) {
+      setResult(result.getText());
+    },
+  });
+
+  return (
+    <>
+      <video ref={ref} />
+      <p>
+        <span>Last result:</span>
+        <span>{result}</span>
+      </p>
+    </>
+  );
+};
