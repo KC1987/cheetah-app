@@ -1,4 +1,7 @@
+'use client'
+
 import TrackItem from "@/components/tracker/track_item"
+import { getProductData } from "@/api/productData";
 import { Button } from "@heroui/button";
 
 
@@ -35,6 +38,9 @@ export default function Home () {
 
   return (
     <div className="rounded-md p-4 mx-auto" >
+        <Button onPress={() => getProductData()} >Test Api</Button>
+
+
         {/*Add Item & Calorie Counter */}
         <div className="flex justify-between mb-3" >
           <div>
