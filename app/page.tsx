@@ -38,7 +38,7 @@ export default function Home () {
 
   return (
     <div className="rounded-md p-4 mx-auto" >
-        <Button onPress={() => getProductData()} >Test Api</Button>
+        <Button >Test Api</Button>
 
 
         {/*Add Item & Calorie Counter */}

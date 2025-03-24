@@ -12,6 +12,7 @@ export default function BarcodeScanner() {
   const [devices, setDevices] = useState([]);
   const [selectedDeviceId, setSelectedDeviceId] = useState('');
   const [isLibraryLoaded, setIsLibraryLoaded] = useState(false);
+  const [productInfo, setProductInfo] = useState("Product info...");
   
   const videoRef = useRef(null);
   const codeReaderRef = useRef(null);
@@ -81,7 +82,7 @@ export default function BarcodeScanner() {
           
           if (result) {
             setResult(result.getText());
-            getProductData( result.getText() );
+            handleBarcode(result.getText());
             // ======================================= ON SCAN
             // Uncomment to stop after first successful scan
             // stopScanner();
@@ -120,15 +121,19 @@ export default function BarcodeScanner() {
     setSelectedDeviceId(e.target.value);
   };
 
+  function handleBarcode( barcode:any ) {
+    getProductData(barcode, setProductInfo)
+  }
+
   return (
     <div className="p-4 max-w-md mx-auto">
       <h1 className="text-2xl font-bold mb-4">Barcode Scanner</h1>
-      
-      {error && (
+      <h1>{productInfo}</h1>
+      { error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
           {error}
         </div>
-      )}
+      ) }
       
       {!isLibraryLoaded && !error && (
         <div className="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded mb-4">
